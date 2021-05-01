@@ -1,0 +1,17 @@
+<h1 style="color:yellow;">Pete's Pizzeria</h1>
+
+<body style="background-color:orange;">
+
+    <p>
+        <b>
+            <a href="{% url 'pizzas:homepage' %}">Home</a>
+            <a href="{% url 'pizzas:menu' %}">Menu</a>
+        </b>
+    </p>
+
+
+    <hr>
+
+    {% block content %}
+
+    {% endblock content %}

@@ -18,13 +18,14 @@ def menu(request):
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
     toppings = pizza.topping_set.order_by('-date_added')
-    context = {"pizza":pizza, "toppings":toppings}
+    comments = pizza.comment_set.order_by('-date_added')
+    context = {"pizza":pizza, "toppings":toppings, "comments":comments}
     return render(request, "pizzas/pizza.html", context)
 
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-    comments = pizza.comments.filter(active=True)
-#    comments = pizza.comment_set.order_by('-date_added')
+#    comments = pizza.comments.filter(active=True)
+    comments = pizza.comment_set.order_by('-date_added')
     comment = None
     
     if request.method != "POST":
@@ -37,7 +38,7 @@ def new_comment(request, pizza_id):
             comment.save()
 
             
-            return redirect("pizzas:pizza",pizza_id=pizza_id)
+            return redirect("pizzas:pizza",id=pizza_id)
 
     context = {"form": form, "pizza": pizza, "comment":comment, "comments":comments}
     return render(request, "pizzas/new_comment.html", context)

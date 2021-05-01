@@ -14,6 +14,24 @@
     {% endfor %}
 </ul>
 
+{% if request.get_full_path == "/pizzas/1/" %}
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/MtI8Pbp" data-context="false"><a
+        href="//imgur.com/a/MtI8Pbp"></a></blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{% elif request.get_full_path == "/pizzas/4/" %}
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/mG16mux" data-context="false"><a
+        href="//imgur.com/a/mG16mux"></a></blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{% elif request.get_full_path == "/pizzas/3/" %}
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/ypgSz2F" data-context="false"><a
+        href="//imgur.com/a/ypgSz2F"></a></blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{% elif request.get_full_path == "/pizzas/2/" %}
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/pzm5Of6" data-context="false"><a
+        href="//imgur.com/a/pzm5Of6"></a></blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+{% endif %}
+
 <p> <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a></p>
 
 <ul>

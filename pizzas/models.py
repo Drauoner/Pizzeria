@@ -12,8 +12,11 @@ class Pizza(models.Model):
 
 class Topping(models.Model):
     name = models.CharField(max_length=50)
-    #pizza =
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    
      
+    class Meta:
+        verbose_name_plural = "toppings"
 
     def __str__(self):
-        return self.name 
+        return '%s %s' % (self.pizza, self.name)  [:50] + "..."

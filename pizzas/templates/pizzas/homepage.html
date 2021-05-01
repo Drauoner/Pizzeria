@@ -1,15 +1,28 @@
-<p>
-    <a href="{% url 'MainApp:index' %}">Learning Log</a>
-    <a href="{% url 'MainApp:topics' %}">Topics</a>
-    {% if user.is_authenticated %}
-    Hello, {{user.username}}.
-    <a href="{% url 'users:logout' %}">Log out</a>
-    {% else %}
-    <a href="{% url 'users:register' %}">Register</a>
-    <a href="{% url 'users:login' %}">Log in</a>
-    {% endif %}
-</p>
+<h1 style="color:yellow;">Pete's Pizzeria</h1>
 
-{% block content %}
+<body style="background-color:orange;">
 
-{% endblock content %}
+    <p>
+        <b>
+            <a href="{% url 'pizzas:menu' %}">Menu</a>
+        </b>
+    </p>
+
+
+    <hr>
+
+    <p>
+        <b><i style="color:red;">"There's never such thing as too much pizza!"</i> - Pete Pizza, Founder and
+            CEO</b>
+    </p>
+
+
+
+    <blockquote class="imgur-embed-pub" lang="en" data-id="a9YRhZS" data-context="false"><a
+            href="//imgur.com/a/a9YRhZS"></a></blockquote>
+    <script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
+
+    {% block content %}
+
+    {% endblock content %}

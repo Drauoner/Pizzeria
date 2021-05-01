@@ -4,7 +4,7 @@ from django.db import models
 
 class Pizza(models.Model):
     name = models.CharField(max_length=50)
-
+    date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
@@ -13,7 +13,7 @@ class Pizza(models.Model):
 class Topping(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-
+    date_added = models.DateTimeField(auto_now_add=True)
     
      
     class Meta:

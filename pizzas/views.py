@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Pizza, Topping
+from .forms import PizzaForm, ToppingForm
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 # Create your views here.
@@ -16,7 +17,7 @@ def menu(request):
 
 def pizza(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-    #toppings = pizza.entry_set.order_by('-date_added')
+    toppings = pizza.topping_set.order_by('-date_added')
     context = {"pizza":pizza, "toppings":toppings}
     return render(request, "pizzas/pizza.html", context)
 '''

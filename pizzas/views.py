@@ -23,7 +23,7 @@ def pizza(request, pizza_id):
 
 def new_comment(request, pizza_id):
     pizza = Pizza.objects.get(id=pizza_id)
-    comments = pizza.comments.filter(active=True)
+    comments = pizza.comment_set.order_by('-date_added')
     comment = None
     
     if request.method != "POST":

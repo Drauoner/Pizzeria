@@ -17,9 +17,11 @@
 <p> <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a></p>
 
 <ul>
-    {% for comment in comments %}
+    {% for comment in pizza.comments.all %}
     <li>
         <p> {{ comment.name|linebreaks }}</p>
+        <p> {{ comment.body|linebreaks }}</p>
+        <p> {{ comment.comment }}</p>
     </li>
     {% empty %}
     <li>There are no comments about this pizza.</li>

@@ -24,7 +24,7 @@ class Topping(models.Model):
         return '%s %s' % (self.pizza, self.name)  [:50] + "..."
 
 class Comment(models.Model):
-    post = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
@@ -34,4 +34,5 @@ class Comment(models.Model):
         verbose_name_plural = "comments"
 
     def __str__(self):
+#        return f"{self.body[:50]}..."
         return 'Comment {} by {}'.format(self.body, self.name)

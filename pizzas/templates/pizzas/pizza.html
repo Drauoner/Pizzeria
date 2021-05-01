@@ -34,6 +34,18 @@
 
 <p> <a href="{% url 'pizzas:new_comment' pizza.id %}">Add new comment</a></p>
 
+{% for comment in comments %}
+<div class="comments" style="padding: 10px;">
+    <p class="font-weight-bold">
+        {{ comment.name }}
+        <span class=" text-muted font-weight-normal">
+            {{ comment.date_added }}
+        </span>
+    </p>
+    {{ comment.body | linebreaks }}
+</div>
+{% endfor %}
+
 <ul>
     {% for comment in pizza.comments.all %}
     <li>
